@@ -1,0 +1,50 @@
+[
+  {
+    "id": "ORD_1792307690172_C93662",
+    "userId": "usr_1792307690157_e88f3661",
+    "packageId": "premium_monthly",
+    "amount": 79000,
+    "currency": "vnd",
+    "status": "PAID",
+    "provider": "momo",
+    "createdAt": "2026-10-18T07:14:50.172Z",
+    "expiredAt": "2026-10-18T07:29:50.172Z",
+    "updatedAt": "2026-10-18T07:14:50.302Z",
+    "payUrl": "https://ais-dev-yomqcuxvtmipeetrsuo5ae-593542761722.asia-northeast1.run.app/?tab=checkout&orderId=ORD_1792307690172_C93662&payment_provider=momo&orderId=ORD_1792307690172_C93662&amount=79000&status=simulated",
+    "qrCodeUrl": "https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=momo%3A%2F%2Fpay%3Faction%3Dpay%26amount%3D79000%26orderId%3DORD_1792307690172_C93662%26partner%3DStudySyncAI",
+    "paidAt": "2026-10-18T07:14:50.302Z"
+  },
+  {
+    "id": "ORD_1792307782691_D7F1AE",
+    "userId": "usr_1792307782681_fdb32280",
+    "packageId": "premium_monthly",
+    "amount": 79000,
+    "currency": "vnd",
+    "status": "PAID",
+    "provider": "momo",
+    "createdAt": "2026-10-18T07:16:22.691Z",
+    "expiredAt": "2026-10-18T07:31:22.691Z",
+    "updatedAt": "2026-10-18T07:16:22.808Z",
+    "payUrl": "https://ais-dev-yomqcuxvtmipeetrsuo5ae-593542761722.asia-northeast1.run.app/?tab=checkout&orderId=ORD_1792307782691_D7F1AE&payment_provider=momo&orderId=ORD_1792307782691_D7F1AE&amount=79000&status=simulated",
+    "qrCodeUrl": "https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=momo%3A%2F%2Fpay%3Faction%3Dpay%26amount%3D79000%26orderId%3DORD_1792307782691_D7F1AE%26partner%3DStudySyncAI",
+    "paidAt": "2026-10-18T07:16:22.808Z"
+  },
+  {
+    "id": "ORD_1792338080011_CBB37F",
+    "orderCode": "SSFUIEWI",
+    "userId": "usr_demo_101",
+    "packageId": "premium_monthly",
+    "amount": 79000,
+    "currency": "vnd",
+    "status": "PAID",
+    "provider": "bank",
+    "paymentMethod": "Chuyển khoản ngân hàng (TPBank)",
+    "createdAt": "2026-10-18T15:41:20.011Z",
+    "expiredAt": "2026-10-18T16:41:20.011Z",
+    "updatedAt": "2026-10-18T15:41:37.005Z",
+    "payUrl": "https://ais-dev-oyysje2bzqu5xyqel6lm7d-549252713694.asia-northeast1.run.app/checkout/ORD_1792338080011_CBB37F",
+    "customerConfirmedAt": "2026-10-18T15:41:29.129Z",
+    "paidAt": "2026-10-18T15:41:37.005Z",
+    "verifiedBy": "usr_demo_101"
+  }
+]

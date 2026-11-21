@@ -1,0 +1,1436 @@
+[
+  {
+    "id": "les_demo_01",
+    "ownerId": "usr_demo_101",
+    "subjectId": "sub_web_01",
+    "title": "Tối ưu hiệu năng React 19 & Concurrent Features",
+    "transcript": "Chào các em sinh viên! Trong bài học hôm nay chúng ta tìm hiểu sâu hơn về kiến trúc React 19 và các kỹ thuật tối ưu hóa hiệu năng render.\nKhái niệm đầu tiên là Memoization. Trong React, việc re-render component con không cần thiết là nguyên nhân phổ biến làm suy giảm trải nghiệm người dùng.\nuseCallback được dùng để lưu trữ tham chiếu của một hàm qua các lần render, tránh việc con bị render lại khi nhận prop là function.\nuseMemo dùng để ghi nhớ kết quả tính toán phức tạp. Chỉ khi các dependency thay đổi thì biểu thức bên trong mới được tính lại.\nTiếp theo, React 19 mang đến Compiler tự động tối ưu mà không cần lập trình viên phải tự viết useMemo hoặc useCallback thủ công trong đa số trường hợp.\nVề hạn nộp bài tập: Cả lớp cần hoàn thành bài tập thực hành số 2 về tối ưu DOM và nộp trước ngày 28/10/2026 trên cổng đào tạo.",
+    "summary": "Bài giảng phân tích các kỹ thuật tối ưu hóa hiệu năng trong React 19, đặc biệt là cơ chế Memoization thông qua useCallback và useMemo. Lập trình viên cần hiểu rõ cách hoạt động của React Compiler để tự động hóa quá trình tối ưu. Giảng viên yêu cầu nộp bài tập thực hành số 2 trước ngày 28/10/2026.",
+    "keyPoints": [
+      {
+        "title": "Cơ chế Memoization",
+        "content": "useCallback giữ nguyên tham chiếu hàm, useMemo lưu trữ kết quả phép tính phức tạp.",
+        "importance": "high"
+      },
+      {
+        "title": "React 19 Compiler",
+        "content": "Tự động phân tích và tối ưu hóa component mà không cần bọc thủ công.",
+        "importance": "high"
+      },
+      {
+        "title": "Hạn nộp bài tập",
+        "content": "Bài tập thực hành số 2 phải nộp trước 28/10/2026.",
+        "importance": "medium"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "Memoization",
+        "definition": "Kỹ thuật lưu trữ kết quả tính toán nhằm tránh việc thực thi lại các tác vụ tốn kém tài nguyên."
+      }
+    ],
+    "keywords": [
+      "React 19",
+      "useCallback",
+      "useMemo",
+      "Compiler",
+      "Hiệu năng"
+    ],
+    "createdAt": "2026-10-28T03:37:15.131Z",
+    "updatedAt": "2026-10-28T03:47:50.255Z",
+    "exercises": [
+      {
+        "title": "Ứng dụng Stack trong tính năng Undo và Redo cho ứng dụng React",
+        "question": "Trong bối cảnh tối ưu hiệu năng và trải nghiệm người dùng, hãy thiết kế một hệ thống quản lý lịch sử thao tác cho một trình soạn thảo văn bản đơn giản. Yêu cầu: Sử dụng cấu trúc dữ liệu ngăn xếp (Stack) để thực hiện hai chức năng chính là Hoàn tác (Undo) và Làm lại (Redo). Hãy mô tả chi tiết quy trình xử lý của các ngăn xếp khi người dùng thực hiện các hành động: Gõ văn bản, nhấn nút Undo và nhấn nút Redo.",
+        "hint": "Bạn nên sử dụng hai ngăn xếp riêng biệt: undoStack để lưu trữ các trạng thái hiện tại và redoStack để lưu trữ các trạng thái đã bị hoàn tác. Lưu ý rằng khi có một hành động mới phát sinh, danh sách các hành động có thể Redo phải được xóa bỏ.",
+        "solution": "Bước 1: Khởi tạo hai ngăn xếp rỗng là undoStack và redoStack. Bước 2: Khi người dùng thực hiện một hành động mới, ví dụ gõ chữ A, ta đẩy trạng thái hiện tại vào undoStack và làm trống redoStack. Bước 3: Khi người dùng nhấn Undo, ta lấy (pop) trạng thái cuối cùng từ undoStack, thực hiện khôi phục lại trạng thái trước đó, đồng thời đẩy (push) trạng thái vừa lấy ra vào redoStack. Bước 4: Khi người dùng nhấn Redo, ta lấy (pop) trạng thái từ redoStack, áp dụng lại trạng thái đó cho ứng dụng và đẩy (push) nó trở lại undoStack. Quy trình này đảm bảo nguyên lý LIFO (Vào sau ra trước) giúp người dùng quay lại đúng thứ tự các thao tác đã thực hiện.",
+        "answerGuide": "Bước 1: Khởi tạo hai ngăn xếp rỗng là undoStack và redoStack. Bước 2: Khi người dùng thực hiện một hành động mới, ví dụ gõ chữ A, ta đẩy trạng thái hiện tại vào undoStack và làm trống redoStack. Bước 3: Khi người dùng nhấn Undo, ta lấy (pop) trạng thái cuối cùng từ undoStack, thực hiện khôi phục lại trạng thái trước đó, đồng thời đẩy (push) trạng thái vừa lấy ra vào redoStack. Bước 4: Khi người dùng nhấn Redo, ta lấy (pop) trạng thái từ redoStack, áp dụng lại trạng thái đó cho ứng dụng và đẩy (push) nó trở lại undoStack. Quy trình này đảm bảo nguyên lý LIFO (Vào sau ra trước) giúp người dùng quay lại đúng thứ tự các thao tác đã thực hiện.",
+        "difficulty": "medium"
+      },
+      {
+        "title": "Quản lý thứ tự thực thi Transition trong React 19 bằng Stack",
+        "question": "React 19 giới thiệu các tính năng Concurrent giúp xử lý nhiều cập nhật trạng thái cùng lúc mà không gây treo giao diện. Giả sử bạn cần quản lý một chuỗi các Transition (chuyển đổi trạng thái) lồng nhau. Hãy giải thích cách sử dụng cấu trúc dữ liệu Stack để theo dõi các tác vụ đang thực thi. Làm thế nào để xác định được transition nào là transition cuối cùng (mới nhất) dựa trên nguyên lý LIFO để ưu tiên hiển thị kết quả cho người dùng?",
+        "hint": "Mỗi khi một transition bắt đầu, bạn có thể đẩy mã định danh của nó vào một stack. Khi transition đó hoàn thành, bạn sẽ lấy nó ra khỏi stack. Trạng thái hiển thị cuối cùng luôn phải tương ứng với phần tử ở đỉnh stack.",
+        "solution": "Bước 1: Định nghĩa một Stack để lưu trữ ID của các tiến trình Transition đang chạy. Bước 2: Khi hàm startTransition được gọi, đẩy ID của transition đó vào đỉnh Stack (push). Bước 3: Trong quá trình xử lý, React sẽ kiểm tra giá trị ở đỉnh Stack bằng thao tác peek. Nếu ID của tác vụ hiện tại trùng với ID ở đỉnh Stack, điều đó có nghĩa đây là tác vụ mới nhất được yêu cầu bởi người dùng và kết quả của nó nên được ưu tiên hiển thị. Bước 4: Khi một tác vụ hoàn thành hoặc bị hủy bỏ, thực hiện lấy ID đó ra khỏi Stack (pop). Việc áp dụng Stack giúp hệ thống luôn kiểm soát được thứ tự ưu tiên của các tác vụ đồng thời, tránh tình trạng kết quả cũ ghi đè lên kết quả mới (Race condition) trong môi trường Concurrent Rendering.",
+        "answerGuide": "Bước 1: Định nghĩa một Stack để lưu trữ ID của các tiến trình Transition đang chạy. Bước 2: Khi hàm startTransition được gọi, đẩy ID của transition đó vào đỉnh Stack (push). Bước 3: Trong quá trình xử lý, React sẽ kiểm tra giá trị ở đỉnh Stack bằng thao tác peek. Nếu ID của tác vụ hiện tại trùng với ID ở đỉnh Stack, điều đó có nghĩa đây là tác vụ mới nhất được yêu cầu bởi người dùng và kết quả của nó nên được ưu tiên hiển thị. Bước 4: Khi một tác vụ hoàn thành hoặc bị hủy bỏ, thực hiện lấy ID đó ra khỏi Stack (pop). Việc áp dụng Stack giúp hệ thống luôn kiểm soát được thứ tự ưu tiên của các tác vụ đồng thời, tránh tình trạng kết quả cũ ghi đè lên kết quả mới (Race condition) trong môi trường Concurrent Rendering.",
+        "difficulty": "hard"
+      }
+    ],
+    "mindMap": {
+      "title": "Tối ưu hiệu năng React 19 & Concurrent Features",
+      "nodes": [
+        {
+          "id": "root",
+          "label": "Tối ưu hiệu năng React 19 & Concurrent Features",
+          "title": "Tối ưu hiệu năng React 19 & Concurrent Features",
+          "children": [
+            {
+              "id": "compiler",
+              "label": "React Compiler (Auto-memoization)",
+              "title": "React Compiler (Auto-memoization)",
+              "children": [
+                {
+                  "id": "compiler-1",
+                  "label": "Tự động hóa việc ghi nhớ (Memoization)",
+                  "title": "Tự động hóa việc ghi nhớ (Memoization)",
+                  "children": []
+                },
+                {
+                  "id": "compiler-2",
+                  "label": "Loại bỏ nhu cầu sử dụng useMemo và useCallback thủ công",
+                  "title": "Loại bỏ nhu cầu sử dụng useMemo và useCallback thủ công",
+                  "children": []
+                },
+                {
+                  "id": "compiler-3",
+                  "label": "Giảm thiểu việc render lại (re-render) không cần thiết",
+                  "title": "Giảm thiểu việc render lại (re-render) không cần thiết",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "id": "actions",
+              "label": "Actions API & Form Handling",
+              "title": "Actions API & Form Handling",
+              "children": [
+                {
+                  "id": "actions-1",
+                  "label": "Tích hợp xử lý bất đồng bộ cho HTML Form",
+                  "title": "Tích hợp xử lý bất đồng bộ cho HTML Form",
+                  "children": []
+                },
+                {
+                  "id": "actions-2",
+                  "label": "Hook useFormStatus: Quản lý trạng thái đang gửi (pending)",
+                  "title": "Hook useFormStatus: Quản lý trạng thái đang gửi (pending)",
+                  "children": []
+                },
+                {
+                  "id": "actions-3",
+                  "label": "Hook useFormState: Xử lý kết quả trả về từ Action",
+                  "title": "Hook useFormState: Xử lý kết quả trả về từ Action",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "id": "optimistic",
+              "label": "Cải thiện UX với useOptimistic",
+              "title": "Cải thiện UX với useOptimistic",
+              "children": [
+                {
+                  "id": "optimistic-1",
+                  "label": "Cập nhật giao diện tức thì trước khi phản hồi từ server",
+                  "title": "Cập nhật giao diện tức thì trước khi phản hồi từ server",
+                  "children": []
+                },
+                {
+                  "id": "optimistic-2",
+                  "label": "Tự động hoàn tác (rollback) nếu hành động thất bại",
+                  "title": "Tự động hoàn tác (rollback) nếu hành động thất bại",
+                  "children": []
+                },
+                {
+                  "id": "optimistic-3",
+                  "label": "Áp dụng cho các tính năng: Like, Comment, Update Profile",
+                  "title": "Áp dụng cho các tính năng: Like, Comment, Update Profile",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "id": "server-components",
+              "label": "Server Components (RSC) & Server Actions",
+              "title": "Server Components (RSC) & Server Actions",
+              "children": [
+                {
+                  "id": "rsc-1",
+                  "label": "Giảm kích thước bundle gửi đến trình duyệt",
+                  "title": "Giảm kích thước bundle gửi đến trình duyệt",
+                  "children": []
+                },
+                {
+                  "id": "rsc-2",
+                  "label": "Data Fetching trực tiếp trên Server giúp giảm độ trễ",
+                  "title": "Data Fetching trực tiếp trên Server giúp giảm độ trễ",
+                  "children": []
+                },
+                {
+                  "id": "rsc-3",
+                  "label": "Server Actions: Gọi hàm server-side từ phía client an toàn",
+                  "title": "Server Actions: Gọi hàm server-side từ phía client an toàn",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "id": "concurrent",
+              "label": "Concurrent Rendering Features",
+              "title": "Concurrent Rendering Features",
+              "children": [
+                {
+                  "id": "concurrent-1",
+                  "label": "Suspense: Hiển thị UI thay thế khi đang tải dữ liệu",
+                  "title": "Suspense: Hiển thị UI thay thế khi đang tải dữ liệu",
+                  "children": []
+                },
+                {
+                  "id": "concurrent-2",
+                  "label": "useTransition: Đánh dấu các cập nhật có độ ưu tiên thấp",
+                  "title": "useTransition: Đánh dấu các cập nhật có độ ưu tiên thấp",
+                  "children": []
+                },
+                {
+                  "id": "concurrent-3",
+                  "label": "Phản hồi UI mượt mà, không bị chặn bởi các tác vụ nặng",
+                  "title": "Phản hồi UI mượt mà, không bị chặn bởi các tác vụ nặng",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "children": [
+        {
+          "id": "compiler",
+          "label": "React Compiler (Auto-memoization)",
+          "title": "React Compiler (Auto-memoization)",
+          "children": [
+            {
+              "id": "compiler-1",
+              "label": "Tự động hóa việc ghi nhớ (Memoization)",
+              "title": "Tự động hóa việc ghi nhớ (Memoization)",
+              "children": []
+            },
+            {
+              "id": "compiler-2",
+              "label": "Loại bỏ nhu cầu sử dụng useMemo và useCallback thủ công",
+              "title": "Loại bỏ nhu cầu sử dụng useMemo và useCallback thủ công",
+              "children": []
+            },
+            {
+              "id": "compiler-3",
+              "label": "Giảm thiểu việc render lại (re-render) không cần thiết",
+              "title": "Giảm thiểu việc render lại (re-render) không cần thiết",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "actions",
+          "label": "Actions API & Form Handling",
+          "title": "Actions API & Form Handling",
+          "children": [
+            {
+              "id": "actions-1",
+              "label": "Tích hợp xử lý bất đồng bộ cho HTML Form",
+              "title": "Tích hợp xử lý bất đồng bộ cho HTML Form",
+              "children": []
+            },
+            {
+              "id": "actions-2",
+              "label": "Hook useFormStatus: Quản lý trạng thái đang gửi (pending)",
+              "title": "Hook useFormStatus: Quản lý trạng thái đang gửi (pending)",
+              "children": []
+            },
+            {
+              "id": "actions-3",
+              "label": "Hook useFormState: Xử lý kết quả trả về từ Action",
+              "title": "Hook useFormState: Xử lý kết quả trả về từ Action",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "optimistic",
+          "label": "Cải thiện UX với useOptimistic",
+          "title": "Cải thiện UX với useOptimistic",
+          "children": [
+            {
+              "id": "optimistic-1",
+              "label": "Cập nhật giao diện tức thì trước khi phản hồi từ server",
+              "title": "Cập nhật giao diện tức thì trước khi phản hồi từ server",
+              "children": []
+            },
+            {
+              "id": "optimistic-2",
+              "label": "Tự động hoàn tác (rollback) nếu hành động thất bại",
+              "title": "Tự động hoàn tác (rollback) nếu hành động thất bại",
+              "children": []
+            },
+            {
+              "id": "optimistic-3",
+              "label": "Áp dụng cho các tính năng: Like, Comment, Update Profile",
+              "title": "Áp dụng cho các tính năng: Like, Comment, Update Profile",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "server-components",
+          "label": "Server Components (RSC) & Server Actions",
+          "title": "Server Components (RSC) & Server Actions",
+          "children": [
+            {
+              "id": "rsc-1",
+              "label": "Giảm kích thước bundle gửi đến trình duyệt",
+              "title": "Giảm kích thước bundle gửi đến trình duyệt",
+              "children": []
+            },
+            {
+              "id": "rsc-2",
+              "label": "Data Fetching trực tiếp trên Server giúp giảm độ trễ",
+              "title": "Data Fetching trực tiếp trên Server giúp giảm độ trễ",
+              "children": []
+            },
+            {
+              "id": "rsc-3",
+              "label": "Server Actions: Gọi hàm server-side từ phía client an toàn",
+              "title": "Server Actions: Gọi hàm server-side từ phía client an toàn",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "concurrent",
+          "label": "Concurrent Rendering Features",
+          "title": "Concurrent Rendering Features",
+          "children": [
+            {
+              "id": "concurrent-1",
+              "label": "Suspense: Hiển thị UI thay thế khi đang tải dữ liệu",
+              "title": "Suspense: Hiển thị UI thay thế khi đang tải dữ liệu",
+              "children": []
+            },
+            {
+              "id": "concurrent-2",
+              "label": "useTransition: Đánh dấu các cập nhật có độ ưu tiên thấp",
+              "title": "useTransition: Đánh dấu các cập nhật có độ ưu tiên thấp",
+              "children": []
+            },
+            {
+              "id": "concurrent-3",
+              "label": "Phản hồi UI mượt mà, không bị chặn bởi các tác vụ nặng",
+              "title": "Phản hồi UI mượt mà, không bị chặn bởi các tác vụ nặng",
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "les_e2e_1793162567950",
+    "ownerId": "usr_demo_101",
+    "subjectId": "sub_web_01",
+    "title": "Kiến trúc Microservices và Docker",
+    "audioUrl": "/api/audio/aud_1793162567965_qcy7q",
+    "storagePath": "/app/applet/uploads/audio/aud_1793162567965_qcy7q.wav",
+    "audioFileId": "aud_1793162567965_qcy7q",
+    "audioMimeType": "audio/wav",
+    "audioSize": 64044,
+    "audioDuration": 8,
+    "status": "COMPLETED",
+    "transcriptionStatus": "completed",
+    "sourceType": "audio",
+    "createdAt": "2026-10-28T04:42:47.966Z",
+    "updatedAt": "2026-10-28T04:44:14.617Z",
+    "transcript": "Chào các em, hôm nay chúng ta sẽ đi sâu vào một chủ đề rất quan trọng trong lộ trình Lập trình Web nâng cao, đó là kiến trúc Microservices và công cụ Docker. Trước đây, khi chúng ta xây dựng ứng dụng theo kiểu Monolithic, hay còn gọi là kiến trúc đơn khối, tất cả các thành phần từ giao diện, logic xử lý đến cơ sở dữ liệu đều được đóng gói chung vào một dự án duy nhất. Cách tiếp cận này bộc lộ nhiều hạn chế khi hệ thống lớn dần lên: rất khó để mở rộng, chỉ cần một lỗi nhỏ ở một module cũng có thể làm sập toàn bộ hệ thống, và việc cập nhật công nghệ mới cho từng phần là điều gần như không thể. Để giải quyết vấn đề này, kiến trúc Microservices ra đời. Trong Microservices, chúng ta chia nhỏ ứng dụng thành các dịch vụ độc lập. Mỗi dịch vụ sẽ đảm nhận một chức năng nghiệp vụ cụ thể, ví dụ dịch vụ thanh toán, dịch vụ quản lý người dùng, hay dịch vụ kho hàng. Các dịch vụ này giao tiếp với nhau chủ yếu qua giao thức HTTP/REST hoặc Message Queue. Tuy nhiên, việc quản lý hàng chục, hàng trăm dịch vụ nhỏ như vậy trên các môi trường máy chủ khác nhau là một cơn ác mộng. Đó là lý do tại sao chúng ta cần Docker. Docker là một nền tảng containerization cho phép chúng ta đóng gói mã nguồn cùng với tất cả các thư viện, môi trường cần thiết vào một đơn vị gọi là container. Container giúp đảm bảo rằng ứng dụng chạy trên máy của các em như thế nào thì khi lên máy chủ production nó cũng sẽ chạy y hệt như vậy, loại bỏ hoàn toàn lỗi 'nó chạy ổn trên máy em'. Trong Docker, các em cần phân biệt được Image và Container. Image là một bản thiết kế tĩnh, chứa mọi thứ cần để chạy ứng dụng, còn Container là một thực thể đang chạy của Image đó. Tuần sau, chúng ta sẽ thực hành cài đặt một hệ thống Microservices đơn giản trên Docker Compose. Các em lưu ý, hạn chót nộp bài tập lớn phần thiết kế hệ thống là ngày 15 tháng 11, các em cần chuẩn bị kỹ vì đây là phần chiếm điểm số khá cao.",
+    "summary": "Bài giảng tập trung vào việc phân tích sự khác biệt giữa kiến trúc Monolithic truyền thống và kiến trúc Microservices hiện đại. Giảng viên chỉ ra những hạn chế của Monolithic như khó mở rộng và độ rủi ro cao khi gặp lỗi. Microservices được giới thiệu như một giải pháp chia nhỏ hệ thống thành các dịch vụ độc lập để tăng tính linh hoạt. Docker đóng vai trò then chốt trong việc đóng gói và triển khai các dịch vụ này thông qua công nghệ container. Container giúp đồng nhất môi trường phát triển và môi trường vận hành thực tế. Bài giảng cũng nhấn mạnh sự khác biệt giữa Docker Image và Docker Container. Cuối cùng, giảng viên nhắc nhở về kế hoạch thực hành và thời hạn nộp bài tập lớn quan trọng sắp tới.",
+    "summaryStatus": "completed",
+    "analysisStatus": "completed",
+    "mindMap": {
+      "id": "root",
+      "title": "Kiến trúc Microservices và Docker",
+      "label": "Kiến trúc Microservices và Docker",
+      "nodes": [
+        {
+          "id": "root",
+          "label": "Kiến trúc Microservices và Docker",
+          "title": "Kiến trúc Microservices và Docker",
+          "children": [
+            {
+              "id": "core-components",
+              "label": "Các thành phần cốt lõi",
+              "title": "Các thành phần cốt lõi",
+              "children": [
+                {
+                  "id": "api-gateway",
+                  "label": "API Gateway",
+                  "title": "API Gateway",
+                  "children": [
+                    {
+                      "id": "routing",
+                      "label": "Định tuyến request",
+                      "title": "Định tuyến request",
+                      "children": []
+                    },
+                    {
+                      "id": "authentication",
+                      "label": "Xác thực tập trung",
+                      "title": "Xác thực tập trung",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "service-discovery",
+                  "label": "Service Discovery",
+                  "title": "Service Discovery",
+                  "children": [
+                    {
+                      "id": "auto-detection",
+                      "label": "Tự động tìm kiếm dịch vụ",
+                      "title": "Tự động tìm kiếm dịch vụ",
+                      "children": []
+                    },
+                    {
+                      "id": "internal-network",
+                      "label": "Giao tiếp mạng nội bộ",
+                      "title": "Giao tiếp mạng nội bộ",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "message-queue",
+                  "label": "Message Queue",
+                  "title": "Message Queue",
+                  "children": [
+                    {
+                      "id": "async-communication",
+                      "label": "Giao tiếp bất đồng bộ",
+                      "title": "Giao tiếp bất đồng bộ",
+                      "children": []
+                    },
+                    {
+                      "id": "tools",
+                      "label": "Công cụ phổ biến: RabbitMQ, Kafka",
+                      "title": "Công cụ phổ biến: RabbitMQ, Kafka",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "course-administration",
+              "label": "Quản lý học tập",
+              "title": "Quản lý học tập",
+              "children": [
+                {
+                  "id": "assignment",
+                  "label": "Bài tập lớn: Thiết kế hệ thống",
+                  "title": "Bài tập lớn: Thiết kế hệ thống",
+                  "children": []
+                },
+                {
+                  "id": "deadline",
+                  "label": "Hạn nộp: 20/11/2026",
+                  "title": "Hạn nộp: 20/11/2026",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "children": [
+        {
+          "id": "core-components",
+          "label": "Các thành phần cốt lõi",
+          "title": "Các thành phần cốt lõi",
+          "children": [
+            {
+              "id": "api-gateway",
+              "label": "API Gateway",
+              "title": "API Gateway",
+              "children": [
+                {
+                  "id": "routing",
+                  "label": "Định tuyến request",
+                  "title": "Định tuyến request",
+                  "children": []
+                },
+                {
+                  "id": "authentication",
+                  "label": "Xác thực tập trung",
+                  "title": "Xác thực tập trung",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "id": "service-discovery",
+              "label": "Service Discovery",
+              "title": "Service Discovery",
+              "children": [
+                {
+                  "id": "auto-detection",
+                  "label": "Tự động tìm kiếm dịch vụ",
+                  "title": "Tự động tìm kiếm dịch vụ",
+                  "children": []
+                },
+                {
+                  "id": "internal-network",
+                  "label": "Giao tiếp mạng nội bộ",
+                  "title": "Giao tiếp mạng nội bộ",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "id": "message-queue",
+              "label": "Message Queue",
+              "title": "Message Queue",
+              "children": [
+                {
+                  "id": "async-communication",
+                  "label": "Giao tiếp bất đồng bộ",
+                  "title": "Giao tiếp bất đồng bộ",
+                  "children": []
+                },
+                {
+                  "id": "tools",
+                  "label": "Công cụ phổ biến: RabbitMQ, Kafka",
+                  "title": "Công cụ phổ biến: RabbitMQ, Kafka",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "course-administration",
+          "label": "Quản lý học tập",
+          "title": "Quản lý học tập",
+          "children": [
+            {
+              "id": "assignment",
+              "label": "Bài tập lớn: Thiết kế hệ thống",
+              "title": "Bài tập lớn: Thiết kế hệ thống",
+              "children": []
+            },
+            {
+              "id": "deadline",
+              "label": "Hạn nộp: 20/11/2026",
+              "title": "Hạn nộp: 20/11/2026",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "keyPoints": [
+      {
+        "title": "Hạn chế của kiến trúc Monolithic",
+        "content": "Kiến trúc đơn khối gây khó khăn trong việc mở rộng quy mô, bảo trì và cập nhật công nghệ mới vì mọi thành phần phụ thuộc chặt chẽ vào nhau.",
+        "importance": "high"
+      },
+      {
+        "title": "Đặc điểm của Microservices",
+        "content": "Hệ thống được chia thành nhiều dịch vụ nhỏ, độc lập, thực hiện các chức năng riêng biệt và giao tiếp qua API hoặc Message Queue.",
+        "importance": "high"
+      },
+      {
+        "title": "Vai trò của Docker trong Microservices",
+        "content": "Docker giúp đóng gói ứng dụng và môi trường vào container, đảm bảo tính nhất quán khi triển khai trên nhiều môi trường khác nhau.",
+        "importance": "high"
+      },
+      {
+        "title": "Phân biệt Docker Image và Container",
+        "content": "Image là tệp tin tĩnh (bản thiết kế), trong khi Container là một instance hoạt động cụ thể được tạo ra từ Image.",
+        "importance": "medium"
+      }
+    ],
+    "keywords": [
+      "Microservices",
+      "Docker",
+      "Monolithic",
+      "Containerization",
+      "Docker Image",
+      "Docker Container",
+      "Scalability",
+      "API"
+    ],
+    "concepts": [
+      {
+        "term": "Microservices",
+        "definition": "Phong cách kiến trúc phần mềm chia nhỏ ứng dụng thành các dịch vụ độc lập, giao tiếp với nhau qua mạng.",
+        "example": "Hệ thống thương mại điện tử chia thành dịch vụ đơn hàng, dịch vụ thanh toán và dịch vụ kho."
+      },
+      {
+        "term": "Giao tiếp bất đồng bộ",
+        "definition": "Hình thức truyền thông tin trong đó người gửi không cần chờ phản hồi ngay lập tức từ người nhận.",
+        "example": "Sử dụng Message Queue để đẩy thông báo xác nhận đơn hàng sau khi khách đặt hàng."
+      }
+    ],
+    "flashcards": [
+      {
+        "front": "Kiến trúc Monolithic là gì?",
+        "back": "Là kiến trúc đơn khối, nơi tất cả các thành phần của ứng dụng được xây dựng và triển khai cùng nhau như một đơn vị duy nhất.",
+        "difficulty": "easy"
+      },
+      {
+        "front": "Lợi ích lớn nhất của Microservices là gì?",
+        "back": "Khả năng mở rộng độc lập từng dịch vụ, dễ bảo trì và cho phép sử dụng các công nghệ khác nhau cho các dịch vụ khác nhau.",
+        "difficulty": "medium"
+      },
+      {
+        "front": "Docker Image khác gì so với Docker Container?",
+        "back": "Image là bản thiết kế tĩnh (read-only), còn Container là một thực thể đang chạy được khởi tạo từ Image.",
+        "difficulty": "medium"
+      },
+      {
+        "front": "Containerization giải quyết vấn đề gì?",
+        "back": "Giải quyết sự không đồng nhất giữa môi trường phát triển (máy cá nhân) và môi trường thực tế (server).",
+        "difficulty": "hard"
+      }
+    ],
+    "quizQuestions": [
+      {
+        "question": "Tại sao kiến trúc Monolithic lại khó mở rộng?",
+        "options": [
+          "Vì các thành phần quá tách biệt",
+          "Vì phải mở rộng toàn bộ khối ứng dụng ngay cả khi chỉ một phần cần thêm tài nguyên",
+          "Vì nó không thể chạy trên môi trường Linux",
+          "Vì nó không hỗ trợ kết nối cơ sở dữ liệu"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Trong Monolithic, do mọi thứ nằm chung một khối nên bạn không thể chỉ mở rộng riêng dịch vụ thanh toán mà phải nhân bản toàn bộ ứng dụng, gây lãng phí tài nguyên."
+      },
+      {
+        "question": "Trong Docker, đơn vị nào chứa mã nguồn và môi trường cần thiết để chạy ứng dụng?",
+        "options": [
+          "Volume",
+          "Network",
+          "Container",
+          "Image"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Image là nơi đóng gói mã nguồn, thư viện và các thiết lập môi trường. Khi Image chạy, nó mới tạo ra Container."
+      },
+      {
+        "question": "Giao thức phổ biến nhất để các Microservices giao tiếp với nhau là gì?",
+        "options": [
+          "FTP",
+          "HTTP/REST",
+          "SMTP",
+          "Telnet"
+        ],
+        "correctAnswer": 1,
+        "explanation": "HTTP/REST là giao thức phổ biến và nhẹ nhàng nhất để các dịch vụ web trao đổi dữ liệu với nhau trong kiến trúc Microservices."
+      }
+    ],
+    "deadlines": [
+      {
+        "title": "Nộp bài tập lớn phần thiết kế hệ thống",
+        "dueDate": "2024-11-15",
+        "priority": "high"
+      }
+    ],
+    "exercises": [
+      {
+        "question": "Hãy liệt kê và phân tích 3 ưu điểm và 3 nhược điểm khi chuyển đổi từ Monolithic sang Microservices.",
+        "answerGuide": "Ưu điểm: 1. Khả năng mở rộng độc lập. 2. Dễ dàng triển khai liên tục (CI/CD). 3. Linh hoạt về công nghệ. Nhược điểm: 1. Độ phức tạp trong quản lý hệ thống tăng cao. 2. Khó khăn trong việc đảm bảo tính nhất quán dữ liệu giữa các dịch vụ. 3. Chi phí vận hành và giám sát lớn hơn."
+      },
+      {
+        "question": "Tại sao Docker lại được coi là công cụ không thể thiếu khi triển khai Microservices?",
+        "answerGuide": "Vì Microservices có số lượng dịch vụ lớn, mỗi dịch vụ có thể yêu cầu môi trường khác nhau. Docker giúp đóng gói từng dịch vụ riêng biệt, đảm bảo chúng hoạt động độc lập, không xung đột và dễ dàng di chuyển giữa các máy chủ mà không cần cài đặt lại môi trường thủ công."
+      }
+    ],
+    "analyzedAt": "2026-10-28T04:44:14.617Z"
+  },
+  {
+    "id": "les_1793162621022_1c0e5c",
+    "ownerId": "usr_1793162496774_94854659",
+    "subjectId": "",
+    "title": "Bài học Free User B",
+    "transcript": "Trong bài giảng hôm nay về Kiến trúc Microservices và Docker, chúng ta tìm hiểu 3 thành phần cốt lõi: API Gateway giúp định tuyến request và xác thực tập trung; Service Discovery giúp các dịch vụ tự động tìm thấy nhau trong mạng nội bộ; và Message Queue như RabbitMQ hoặc Kafka giúp giao tiếp bất đồng bộ. Lưu ý cả lớp nộp bài tập lớn thiết kế hệ thống trước ngày 20/11/2026.",
+    "summary": "",
+    "keyPoints": [],
+    "concepts": [],
+    "keywords": [],
+    "status": "TRANSCRIBED",
+    "createdAt": "2026-10-28T04:43:41.022Z",
+    "updatedAt": "2026-10-28T04:43:41.022Z"
+  },
+  {
+    "id": "les_e2e_1793163267732",
+    "ownerId": "usr_demo_101",
+    "subjectId": "sub_net",
+    "title": "Bài giảng Mạng Máy Tính TCP/IP",
+    "transcript": "Giao thức TCP đảm bảo truyền dữ liệu tin cậy, có kết nối và kiểm soát luồng dữ liệu giữa hai đầu cuối trong mạng máy tính.",
+    "summary": "Tổng quan về giao thức TCP trong mạng máy tính.",
+    "keyPoints": [],
+    "concepts": [],
+    "keywords": [],
+    "status": "TRANSCRIBED",
+    "createdAt": "2026-10-28T04:54:27.737Z",
+    "updatedAt": "2026-10-28T04:54:27.737Z"
+  },
+  {
+    "id": "les_audio_1793163269157",
+    "ownerId": "usr_demo_101",
+    "subjectId": "sub_web_01",
+    "title": "Bài giảng Cấu trúc dữ liệu & Giải thuật",
+    "audioUrl": "/api/audio/aud_1793163269161_iasvl",
+    "storagePath": "/app/applet/uploads/audio/aud_1793163269161_iasvl.wav",
+    "audioFileId": "aud_1793163269161_iasvl",
+    "audioMimeType": "audio/wav",
+    "audioSize": 48044,
+    "audioDuration": 0,
+    "status": "COMPLETED",
+    "transcriptionStatus": "completed",
+    "sourceType": "audio",
+    "createdAt": "2026-10-28T04:54:29.161Z",
+    "updatedAt": "2026-10-28T04:54:39.049Z",
+    "transcript": "Hôm nay chúng ta học về cấu trúc dữ liệu Ngăn xếp (Stack) hoạt động theo nguyên tắc LIFO (Vào sau ra trước) và Hàng đợi (Queue) hoạt động theo nguyên tắc FIFO (Vào trước ra trước). Hạn nộp bài tập cài đặt Stack bằng mảng là ngày 2026-11-15.",
+    "analysisStatus": "completed",
+    "mindMap": {
+      "id": "root",
+      "title": "Cau truc du lieu",
+      "label": "Cau truc du lieu",
+      "nodes": [
+        {
+          "id": "root",
+          "label": "Cau truc du lieu",
+          "title": "Cau truc du lieu",
+          "children": [
+            {
+              "id": "root-1",
+              "label": "Ngan xep (Stack)",
+              "title": "Ngan xep (Stack)",
+              "children": []
+            },
+            {
+              "id": "root-2",
+              "label": "Hang doi (Queue)",
+              "title": "Hang doi (Queue)",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "children": [
+        {
+          "id": "root-1",
+          "label": "Ngan xep (Stack)",
+          "title": "Ngan xep (Stack)",
+          "children": []
+        },
+        {
+          "id": "root-2",
+          "label": "Hang doi (Queue)",
+          "title": "Hang doi (Queue)",
+          "children": []
+        }
+      ]
+    },
+    "summary": "Bài giảng này giới thiệu hai cấu trúc dữ liệu cơ bản và quan trọng trong tin học là Ngăn xếp và Hàng đợi. Ngăn xếp tuân thủ nguyên tắc vào sau ra trước, trong khi Hàng đợi tuân thủ nguyên tắc vào trước ra trước. Cả hai cấu trúc này đóng vai trò nền tảng trong việc lưu trữ và xử lý dữ liệu. Sinh viên cần nắm vững cách cài đặt các cấu trúc này để áp dụng vào thực tế. Bài học cũng nhấn mạnh về yêu cầu cài đặt cụ thể bằng mảng. Đây là kiến thức cốt lõi giúp sinh viên làm quen với các dạng cấu trúc dữ liệu tuyến tính.",
+    "keyPoints": [
+      {
+        "title": "Cấu trúc dữ liệu Ngăn xếp",
+        "content": "Ngăn xếp hoạt động dựa trên nguyên tắc LIFO, nghĩa là phần tử vào sau cùng sẽ được lấy ra đầu tiên.",
+        "importance": "high"
+      },
+      {
+        "title": "Cấu trúc dữ liệu Hàng đợi",
+        "content": "Hàng đợi hoạt động dựa trên nguyên tắc FIFO, nghĩa là phần tử vào đầu tiên sẽ được xử lý trước.",
+        "importance": "high"
+      },
+      {
+        "title": "Ứng dụng và Cài đặt",
+        "content": "Các cấu trúc dữ liệu này có thể được hiện thực hóa bằng mảng hoặc danh sách liên kết.",
+        "importance": "medium"
+      }
+    ],
+    "keywords": [
+      "Cau truc du lieu",
+      "Ngan xep",
+      "Hang doi",
+      "LIFO",
+      "FIFO",
+      "Mang"
+    ],
+    "concepts": [
+      {
+        "term": "LIFO",
+        "definition": "Last In First Out - Nguyên tắc vào sau ra trước dùng trong Stack.",
+        "example": "Chồng đĩa, đĩa đặt lên sau cùng sẽ được lấy ra trước."
+      },
+      {
+        "term": "FIFO",
+        "definition": "First In First Out - Nguyên tắc vào trước ra trước dùng trong Queue.",
+        "example": "Hàng đợi xếp hàng mua vé, người đến trước sẽ được phục vụ trước."
+      }
+    ],
+    "flashcards": [
+      {
+        "id": "fc_1793163279046_0",
+        "front": "LIFO là viết tắt của gì?",
+        "back": "Last In First Out",
+        "difficulty": "easy",
+        "topic": "Stack"
+      },
+      {
+        "id": "fc_1793163279046_1",
+        "front": "Nguyên tắc hoạt động của Queue là gì?",
+        "back": "FIFO - Vào trước ra trước",
+        "difficulty": "easy",
+        "topic": "Queue"
+      },
+      {
+        "id": "fc_1793163279046_2",
+        "front": "Stack hoạt động theo nguyên tắc nào?",
+        "back": "LIFO - Vào sau ra trước",
+        "difficulty": "easy",
+        "topic": "Stack"
+      },
+      {
+        "id": "fc_1793163279046_3",
+        "front": "FIFO là viết tắt của gì?",
+        "back": "First In First Out",
+        "difficulty": "easy",
+        "topic": "Queue"
+      }
+    ],
+    "quizQuestions": [
+      {
+        "id": "qz_1793163279046_0",
+        "question": "Ngăn xếp (Stack) tuân thủ nguyên tắc nào?",
+        "explanation": "Ngăn xếp định nghĩa theo LIFO, tức là phần tử thêm vào sau cùng phải được lấy ra trước.",
+        "options": [
+          "Vào trước ra trước",
+          "Vào sau ra trước",
+          "Truy cập ngẫu nhiên",
+          "Ưu tiên theo độ lớn"
+        ],
+        "correctAnswer": 1,
+        "difficulty": "easy"
+      },
+      {
+        "id": "qz_1793163279046_1",
+        "question": "Hàng đợi (Queue) tuân thủ nguyên tắc nào?",
+        "explanation": "Hàng đợi định nghĩa theo FIFO, phần tử đi vào trước sẽ được xử lý trước.",
+        "options": [
+          "Vào sau ra trước",
+          "Vào trước ra trước",
+          "Sắp xếp theo thứ tự giảm dần",
+          "Không có nguyên tắc cụ thể"
+        ],
+        "correctAnswer": 1,
+        "difficulty": "easy"
+      },
+      {
+        "id": "qz_1793163279046_2",
+        "question": "Cấu trúc dữ liệu nào thường dùng để mô phỏng quy trình xử lý hàng đợi?",
+        "explanation": "Hàng đợi (Queue) được thiết kế chuyên biệt cho quy trình xếp hàng và xử lý tuần tự.",
+        "options": [
+          "Stack",
+          "Queue",
+          "Mang hai chiều",
+          "Danh sách rỗng"
+        ],
+        "correctAnswer": 1,
+        "difficulty": "medium"
+      }
+    ],
+    "deadlines": [
+      {
+        "title": "Nop bai tap cai dat Stack bang mang",
+        "dueDate": "2026-11-15",
+        "priority": "high",
+        "confidence": 1,
+        "sourceText": "Han nop bai tap cai dat Stack bang mang la ngay 2026-11-15."
+      }
+    ],
+    "summaryStatus": "completed"
+  },
+  {
+    "id": "les_b_1793163279055",
+    "ownerId": "usr_1793163261494_4552d7ec",
+    "subjectId": "sub_b",
+    "title": "Bài học của Sinh Viên B",
+    "transcript": "Nội dung bài học của sinh viên B dùng để kiểm tra phân quyền gói Free.",
+    "summary": "",
+    "keyPoints": [],
+    "concepts": [],
+    "keywords": [],
+    "status": "TRANSCRIBED",
+    "createdAt": "2026-10-28T04:54:39.057Z",
+    "updatedAt": "2026-10-28T04:54:39.057Z"
+  },
+  {
+    "id": "les_e2e_1793163457413",
+    "ownerId": "usr_demo_101",
+    "subjectId": "sub_net",
+    "title": "Bài giảng Mạng Máy Tính TCP/IP",
+    "transcript": "Giao thức TCP đảm bảo truyền dữ liệu tin cậy, có kết nối và kiểm soát luồng dữ liệu giữa hai đầu cuối trong mạng máy tính.",
+    "summary": "1. Giao thức TCP đóng vai trò cốt lõi trong việc đảm bảo truyền dữ liệu ổn định giữa các thiết bị trên mạng máy tính. 2. Đặc điểm nổi bật của TCP là cơ chế kết nối chặt chẽ giúp thiết lập liên lạc an toàn giữa hai đầu cuối. 3. Giao thức này cho phép kiểm soát luồng dữ liệu hiệu quả nhằm ngăn ngừa tình trạng nghẽn mạng. 4. Nhờ khả năng xác nhận và gửi lại các gói tin bị mất, TCP đảm bảo thông tin đến đích nguyên vẹn. 5. Đây là nền tảng quan trọng giúp các ứng dụng mạng hoạt động tin cậy và chính xác.",
+    "keyPoints": [],
+    "concepts": [],
+    "keywords": [],
+    "status": "TRANSCRIBED",
+    "createdAt": "2026-10-28T04:57:37.418Z",
+    "updatedAt": "2026-10-28T05:00:14.638Z",
+    "summaryStatus": "completed",
+    "flashcards": [
+      {
+        "id": "fc_1793163586869_0",
+        "ownerId": "usr_demo_101",
+        "subjectId": "sub_net",
+        "lessonId": "les_e2e_1793163457413",
+        "front": "Giao thức TCP trong mạng máy tính có vai trò gì chính?",
+        "back": "TCP là giao thức đảm bảo truyền dữ liệu một cách tin cậy, yêu cầu thiết lập kết nối trước khi truyền và thực hiện kiểm soát luồng dữ liệu giữa hai đầu cuối.",
+        "example": "Khi bạn tải một tệp tin, TCP đảm bảo rằng tất cả các phần của tệp được nhận đủ và đúng thứ tự.",
+        "difficulty": "easy",
+        "topic": "Môn học",
+        "reviewStatus": "new",
+        "correctCount": 0,
+        "incorrectCount": 0,
+        "createdAt": "2026-10-28T04:59:46.869Z",
+        "updatedAt": "2026-10-28T04:59:46.869Z"
+      },
+      {
+        "id": "fc_1793163586869_1",
+        "ownerId": "usr_demo_101",
+        "subjectId": "sub_net",
+        "lessonId": "les_e2e_1793163457413",
+        "front": "Tại sao TCP được gọi là giao thức có kết nối?",
+        "back": "TCP được gọi là giao thức có kết nối vì trước khi dữ liệu được gửi đi, hai đầu cuối phải thực hiện quá trình bắt tay để thiết lập một liên kết logic ổn định.",
+        "example": "Tương tự như việc thực hiện một cuộc gọi điện thoại, cả hai bên phải kết nối thành công với nhau trước khi bắt đầu trò chuyện.",
+        "difficulty": "easy",
+        "topic": "Môn học",
+        "reviewStatus": "new",
+        "correctCount": 0,
+        "incorrectCount": 0,
+        "createdAt": "2026-10-28T04:59:46.869Z",
+        "updatedAt": "2026-10-28T04:59:46.869Z"
+      },
+      {
+        "id": "fc_1793163586869_2",
+        "ownerId": "usr_demo_101",
+        "subjectId": "sub_net",
+        "lessonId": "les_e2e_1793163457413",
+        "front": "Chức năng kiểm soát luồng dữ liệu của TCP giúp ích gì?",
+        "back": "Chức năng này giúp ngăn chặn tình trạng bên gửi truyền dữ liệu quá nhanh khiến bên nhận không kịp xử lý, từ đó tránh việc tràn bộ đệm và mất mát dữ liệu.",
+        "example": "Nếu máy tính nhận bị bận hoặc có tốc độ chậm, TCP sẽ điều chỉnh tốc độ gửi của máy phát để đồng bộ hóa với khả năng nhận.",
+        "difficulty": "medium",
+        "topic": "Môn học",
+        "reviewStatus": "new",
+        "correctCount": 0,
+        "incorrectCount": 0,
+        "createdAt": "2026-10-28T04:59:46.869Z",
+        "updatedAt": "2026-10-28T04:59:46.869Z"
+      }
+    ],
+    "quizQuestions": [
+      {
+        "id": "q_1793163613050_0",
+        "question": "Giao thức TCP trong mạng máy tính có đặc điểm chính nào sau đây?",
+        "options": [
+          "Truyền dữ liệu không tin cậy và không cần thiết lập kết nối",
+          "Đảm bảo truyền dữ liệu tin cậy và có kết nối",
+          "Chỉ thực hiện chức năng định tuyến gói tin",
+          "Không có khả năng kiểm soát luồng dữ liệu"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Theo bài giảng, giao thức TCP được thiết kế để đảm bảo sự truyền tải dữ liệu tin cậy thông qua việc thiết lập kết nối giữa hai đầu cuối.",
+        "difficulty": "easy"
+      },
+      {
+        "id": "q_1793163613050_1",
+        "question": "Chức năng nào của giao thức TCP giúp điều phối lượng dữ liệu truyền tải giữa hai đầu cuối?",
+        "options": [
+          "Định dạng dữ liệu",
+          "Phân mảnh gói tin",
+          "Kiểm soát luồng dữ liệu",
+          "Kiểm tra tính toàn vẹn vật lý"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Giao thức TCP bao gồm tính năng kiểm soát luồng dữ liệu nhằm ngăn chặn việc tràn bộ đệm và điều phối tốc độ gửi dữ liệu giữa các thiết bị.",
+        "difficulty": "medium"
+      },
+      {
+        "id": "q_1793163613050_2",
+        "question": "Trong mô hình mạng, giao thức TCP thực hiện truyền dữ liệu giữa hai đối tượng nào?",
+        "options": [
+          "Hai nút mạng trung gian",
+          "Hai đầu cuối trong mạng",
+          "Các tầng vật lý của mạng",
+          "Máy chủ và router"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Giao thức TCP tập trung vào việc quản lý việc truyền tải dữ liệu giữa hai đầu cuối tham gia vào phiên kết nối.",
+        "difficulty": "medium"
+      }
+    ],
+    "mindMap": {
+      "id": "root",
+      "title": "Bài giảng Mạng Máy Tính TCP/IP",
+      "label": "Bài giảng Mạng Máy Tính TCP/IP",
+      "nodes": [
+        {
+          "id": "root",
+          "label": "Bài giảng Mạng Máy Tính TCP/IP",
+          "title": "Bài giảng Mạng Máy Tính TCP/IP",
+          "children": [
+            {
+              "id": "tcp-protocol",
+              "label": "Giao thức TCP",
+              "title": "Giao thức TCP",
+              "children": [
+                {
+                  "id": "reliable-transfer",
+                  "label": "Đảm bảo truyền dữ liệu tin cậy",
+                  "title": "Đảm bảo truyền dữ liệu tin cậy",
+                  "children": []
+                },
+                {
+                  "id": "connection-oriented",
+                  "label": "Có kết nối",
+                  "title": "Có kết nối",
+                  "children": []
+                },
+                {
+                  "id": "flow-control",
+                  "label": "Kiểm soát luồng dữ liệu",
+                  "title": "Kiểm soát luồng dữ liệu",
+                  "children": []
+                },
+                {
+                  "id": "endpoints",
+                  "label": "Giữa hai đầu cuối",
+                  "title": "Giữa hai đầu cuối",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "children": [
+        {
+          "id": "tcp-protocol",
+          "label": "Giao thức TCP",
+          "title": "Giao thức TCP",
+          "children": [
+            {
+              "id": "reliable-transfer",
+              "label": "Đảm bảo truyền dữ liệu tin cậy",
+              "title": "Đảm bảo truyền dữ liệu tin cậy",
+              "children": []
+            },
+            {
+              "id": "connection-oriented",
+              "label": "Có kết nối",
+              "title": "Có kết nối",
+              "children": []
+            },
+            {
+              "id": "flow-control",
+              "label": "Kiểm soát luồng dữ liệu",
+              "title": "Kiểm soát luồng dữ liệu",
+              "children": []
+            },
+            {
+              "id": "endpoints",
+              "label": "Giữa hai đầu cuối",
+              "title": "Giữa hai đầu cuối",
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "les_audio_1793163459434",
+    "ownerId": "usr_demo_101",
+    "subjectId": "sub_web_01",
+    "title": "Bài giảng Cấu trúc dữ liệu & Giải thuật",
+    "audioUrl": "/api/audio/aud_1793163459440_54869",
+    "storagePath": "/app/applet/uploads/audio/aud_1793163459440_54869.wav",
+    "audioFileId": "aud_1793163459440_54869",
+    "audioMimeType": "audio/wav",
+    "audioSize": 48044,
+    "audioDuration": 0,
+    "status": "COMPLETED",
+    "transcriptionStatus": "completed",
+    "sourceType": "audio",
+    "createdAt": "2026-10-28T04:57:39.440Z",
+    "updatedAt": "2026-10-28T04:59:20.207Z",
+    "transcript": "Hôm nay chúng ta học về cấu trúc dữ liệu Ngăn xếp (Stack) hoạt động theo nguyên tắc LIFO (Vào sau ra trước) và Hàng đợi (Queue) hoạt động theo nguyên tắc FIFO (Vào trước ra trước). Hạn nộp bài tập cài đặt Stack bằng mảng là ngày 2026-11-15.",
+    "analysisStatus": "completed",
+    "mindMap": {
+      "id": "root",
+      "title": "Cấu trúc dữ liệu và giải thuật",
+      "label": "Cấu trúc dữ liệu và giải thuật",
+      "nodes": [
+        {
+          "id": "root",
+          "label": "Cấu trúc dữ liệu và giải thuật",
+          "title": "Cấu trúc dữ liệu và giải thuật",
+          "children": [
+            {
+              "id": "root-1",
+              "label": "Ngăn xếp (Stack)",
+              "title": "Ngăn xếp (Stack)",
+              "children": []
+            },
+            {
+              "id": "root-2",
+              "label": "Hàng đợi (Queue)",
+              "title": "Hàng đợi (Queue)",
+              "children": []
+            },
+            {
+              "id": "root-3",
+              "label": "Bài tập thực hành",
+              "title": "Bài tập thực hành",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "children": [
+        {
+          "id": "root-1",
+          "label": "Ngăn xếp (Stack)",
+          "title": "Ngăn xếp (Stack)",
+          "children": []
+        },
+        {
+          "id": "root-2",
+          "label": "Hàng đợi (Queue)",
+          "title": "Hàng đợi (Queue)",
+          "children": []
+        },
+        {
+          "id": "root-3",
+          "label": "Bài tập thực hành",
+          "title": "Bài tập thực hành",
+          "children": []
+        }
+      ]
+    },
+    "summary": "Bài giảng hôm nay tập trung vào hai cấu trúc dữ liệu nền tảng trong khoa học máy tính là Ngăn xếp và Hàng đợi. Ngăn xếp hoạt động theo cơ chế LIFO, nghĩa là phần tử vào sau cùng sẽ được lấy ra đầu tiên. Ngược lại, Hàng đợi tuân thủ nguyên tắc FIFO, nơi phần tử vào trước sẽ được xử lý trước. Những cấu trúc này đóng vai trò quan trọng trong việc quản lý dữ liệu hiệu quả trong các chương trình. Bài giảng cũng đề cập đến yêu cầu thực hành cài đặt ngăn xếp bằng mảng. Người học cần nắm vững hai nguyên tắc vận hành cốt lõi này để ứng dụng vào lập trình.",
+    "keyPoints": [
+      {
+        "title": "Cấu trúc dữ liệu Ngăn xếp (Stack)",
+        "content": "Hoạt động theo nguyên tắc LIFO, phần tử được thêm vào cuối cùng sẽ bị loại bỏ đầu tiên.",
+        "importance": "high"
+      },
+      {
+        "title": "Cấu trúc dữ liệu Hàng đợi (Queue)",
+        "content": "Hoạt động theo nguyên tắc FIFO, phần tử được thêm vào đầu tiên sẽ được lấy ra đầu tiên.",
+        "importance": "high"
+      },
+      {
+        "title": "Ứng dụng thực hành",
+        "content": "Sinh viên cần thực hiện bài tập cài đặt ngăn xếp sử dụng cấu trúc mảng.",
+        "importance": "medium"
+      }
+    ],
+    "keywords": [
+      "Cấu trúc dữ liệu",
+      "Ngăn xếp",
+      "Hàng đợi",
+      "LIFO",
+      "FIFO",
+      "Mảng"
+    ],
+    "concepts": [
+      {
+        "term": "LIFO",
+        "definition": "Viết tắt của Last In First Out, nguyên tắc dữ liệu vào sau cùng sẽ ra trước.",
+        "example": "Chồng đĩa đặt chồng lên nhau."
+      },
+      {
+        "term": "FIFO",
+        "definition": "Viết tắt của First In First Out, nguyên tắc dữ liệu vào trước sẽ ra trước.",
+        "example": "Người xếp hàng mua vé."
+      }
+    ],
+    "flashcards": [
+      {
+        "id": "fc_1793163560203_0",
+        "front": "Nguyên tắc hoạt động của Stack là gì?",
+        "back": "LIFO (Last In First Out)",
+        "example": "Hộp đựng thẻ bài",
+        "difficulty": "easy",
+        "topic": "Stack"
+      },
+      {
+        "id": "fc_1793163560203_1",
+        "front": "Nguyên tắc hoạt động của Queue là gì?",
+        "back": "FIFO (First In First Out)",
+        "example": "Hàng đợi tại quầy thanh toán",
+        "difficulty": "easy",
+        "topic": "Queue"
+      },
+      {
+        "id": "fc_1793163560203_2",
+        "front": "LIFO viết đầy đủ là gì?",
+        "back": "Last In First Out",
+        "example": "Nhập cuối xuất đầu",
+        "difficulty": "easy",
+        "topic": "Khái niệm"
+      },
+      {
+        "id": "fc_1793163560203_3",
+        "front": "FIFO viết đầy đủ là gì?",
+        "back": "First In First Out",
+        "example": "Nhập trước xuất trước",
+        "difficulty": "easy",
+        "topic": "Khái niệm"
+      }
+    ],
+    "quizQuestions": [
+      {
+        "id": "qz_1793163560203_0",
+        "question": "Cấu trúc dữ liệu nào tuân theo nguyên tắc LIFO?",
+        "explanation": "Ngăn xếp (Stack) định nghĩa là cấu trúc dữ liệu hoạt động theo cơ chế Vào sau ra trước (LIFO).",
+        "options": [
+          "Queue",
+          "Stack",
+          "Array",
+          "Linked List"
+        ],
+        "correctAnswer": 1,
+        "difficulty": "easy"
+      },
+      {
+        "id": "qz_1793163560203_1",
+        "question": "Cấu trúc dữ liệu nào tuân theo nguyên tắc FIFO?",
+        "explanation": "Hàng đợi (Queue) là cấu trúc dữ liệu hoạt động theo cơ chế Vào trước ra trước (FIFO).",
+        "options": [
+          "Stack",
+          "Queue",
+          "Tree",
+          "Graph"
+        ],
+        "correctAnswer": 1,
+        "difficulty": "easy"
+      }
+    ],
+    "deadlines": [
+      {
+        "title": "Nộp bài tập cài đặt Stack bằng mảng",
+        "dueDate": "2026-11-15",
+        "priority": "medium",
+        "confidence": 1,
+        "sourceText": "Hạn nộp bài tập cài đặt Stack bằng mảng là ngày 2026-11-15."
+      }
+    ],
+    "summaryStatus": "completed"
+  },
+  {
+    "id": "les_b_1793163560215",
+    "ownerId": "usr_1793163449480_14a8147d",
+    "subjectId": "sub_b",
+    "title": "Bài học của Sinh Viên B",
+    "transcript": "Nội dung bài học của sinh viên B dùng để kiểm tra phân quyền gói Free.",
+    "summary": "",
+    "keyPoints": [],
+    "concepts": [],
+    "keywords": [],
+    "status": "TRANSCRIBED",
+    "createdAt": "2026-10-28T04:59:20.217Z",
+    "updatedAt": "2026-10-28T04:59:20.217Z"
+  },
+  {
+    "id": "les_e2e_test_99",
+    "ownerId": "usr_demo_101",
+    "subjectId": "sub_web_01",
+    "title": "Bài giảng React Hooks và State",
+    "audioUrl": "/api/audio/aud_1793697495851_z3mlc",
+    "storagePath": "/app/applet/uploads/audio/aud_1793697495851_z3mlc.wav",
+    "audioFileId": "aud_1793697495851_z3mlc",
+    "audioMimeType": "audio/wav",
+    "audioSize": 32044,
+    "audioDuration": 0,
+    "status": "COMPLETED",
+    "transcriptionStatus": "completed",
+    "sourceType": "audio",
+    "createdAt": "2026-11-03T09:18:15.851Z",
+    "updatedAt": "2026-11-03T09:18:55.774Z",
+    "transcript": "Trong bài giảng hôm nay, chúng ta tìm hiểu về React Hooks bao gồm useState để quản lý trạng thái cục bộ trong functional component và useEffect để xử lý các side effects như gọi API hoặc đăng ký sự kiện. Lưu ý không gọi Hooks bên trong vòng lặp hoặc câu lệnh điều kiện.",
+    "analysisStatus": "completed",
+    "mindMap": {
+      "id": "root",
+      "title": "React Hooks và State",
+      "label": "React Hooks và State",
+      "nodes": [
+        {
+          "id": "root",
+          "label": "React Hooks và State",
+          "title": "React Hooks và State",
+          "children": [
+            {
+              "id": "root-1",
+              "label": "1. useState - Quản lý State",
+              "title": "1. useState - Quản lý State",
+              "children": []
+            },
+            {
+              "id": "root-2",
+              "label": "2. useEffect - Xử lý Side Effects",
+              "title": "2. useEffect - Xử lý Side Effects",
+              "children": []
+            },
+            {
+              "id": "root-3",
+              "label": "3. Quy tắc Hooks - Không lồng trong if/vòng lặp",
+              "title": "3. Quy tắc Hooks - Không lồng trong if/vòng lặp",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "children": [
+        {
+          "id": "root-1",
+          "label": "1. useState - Quản lý State",
+          "title": "1. useState - Quản lý State",
+          "children": []
+        },
+        {
+          "id": "root-2",
+          "label": "2. useEffect - Xử lý Side Effects",
+          "title": "2. useEffect - Xử lý Side Effects",
+          "children": []
+        },
+        {
+          "id": "root-3",
+          "label": "3. Quy tắc Hooks - Không lồng trong if/vòng lặp",
+          "title": "3. Quy tắc Hooks - Không lồng trong if/vòng lặp",
+          "children": []
+        }
+      ]
+    },
+    "summary": "Bài giảng hôm nay tập trung vào kiến thức quan trọng về React Hooks và cách quản lý trạng thái. Chúng ta đã cùng tìm hiểu về useState, một công cụ cho phép thêm trạng thái vào các functional component. Tiếp theo, khái niệm về useEffect được giới thiệu để giải quyết các tác vụ side effects như gọi API. Người học cần lưu ý rằng useEffect giúp quản lý vòng đời của component một cách linh hoạt hơn. Một phần trọng tâm khác của bài học là những quy tắc nghiêm ngặt khi sử dụng Hooks trong mã nguồn. Giảng viên nhấn mạnh việc không bao giờ được gọi Hooks bên trong các vòng lặp hay khối lệnh điều kiện. Việc tuân thủ các quy tắc này đảm bảo React có thể theo dõi chính xác thứ tự của các Hook. Nắm vững useState và useEffect là bước đầu tiên để xây dựng những ứng dụng React hiệu quả và chuyên nghiệp.",
+    "keyPoints": [
+      {
+        "title": "1. Quản lý trạng thái cục bộ với useState",
+        "content": "useState cung cấp khả năng lưu trữ và cập nhật dữ liệu ngay trong các component hàm, điều mà trước đây chỉ làm được trong class components.",
+        "importance": "high"
+      },
+      {
+        "title": "2. Xử lý tác vụ ngoại biên với useEffect",
+        "content": "useEffect dùng để thực hiện các side effects như gọi API, thiết lập đăng ký sự kiện hoặc thay đổi DOM thủ công sau khi render.",
+        "importance": "high"
+      },
+      {
+        "title": "3. Các quy tắc sử dụng Hooks cơ bản",
+        "content": "Hooks phải luôn được gọi ở cấp cao nhất của hàm, tuyệt đối không đặt trong vòng lặp, câu điều kiện hoặc các hàm lồng nhau để đảm bảo thứ tự thực thi.",
+        "importance": "high"
+      }
+    ],
+    "keywords": [
+      "React Hooks",
+      "useState",
+      "useEffect",
+      "Side effects",
+      "Functional component",
+      "Quy tắc Hooks"
+    ],
+    "concepts": [
+      {
+        "term": "useState",
+        "definition": "Một Hook cơ bản cho phép khai báo một biến trạng thái trong hàm component.",
+        "example": "const [count, setCount] = useState(0)"
+      },
+      {
+        "term": "useEffect",
+        "definition": "Hook dùng để xử lý các hành động có tác động bên ngoài hoặc cần đồng bộ sau khi component render.",
+        "example": "useEffect(() => { fetchData(); }, [])"
+      },
+      {
+        "term": "Side effects",
+        "definition": "Các tác vụ gây ra thay đổi bên ngoài phạm vi của hàm đang thực thi như gửi yêu cầu HTTP hoặc đăng ký sự kiện.",
+        "example": "Gửi yêu cầu GET đến server để lấy danh sách người dùng."
+      }
+    ],
+    "flashcards": [
+      {
+        "id": "fc_1793697535756_0",
+        "front": "Mục đích chính của useState là gì?",
+        "back": "Quản lý trạng thái dữ liệu bên trong các functional component.",
+        "example": "Dùng để lưu trữ số lần click chuột của người dùng.",
+        "difficulty": "easy",
+        "topic": "React Hooks"
+      },
+      {
+        "id": "fc_1793697535756_1",
+        "front": "Khi nào useEffect được thực thi?",
+        "back": "Được thực thi sau khi component render xong hoặc khi các giá trị phụ thuộc thay đổi.",
+        "example": "Gọi API ngay khi trang vừa tải xong.",
+        "difficulty": "medium",
+        "topic": "React Hooks"
+      },
+      {
+        "id": "fc_1793697535756_2",
+        "front": "Tại sao không được gọi Hooks trong câu lệnh điều kiện if?",
+        "back": "Vì React cần duy trì thứ tự gọi Hooks cố định giữa các lần render để ánh xạ đúng trạng thái.",
+        "example": "Việc gọi useState trong if khiến thứ tự Hook bị thay đổi nếu điều kiện sai.",
+        "difficulty": "hard",
+        "topic": "Quy tắc Hooks"
+      },
+      {
+        "id": "fc_1793697535756_3",
+        "front": "Side effect trong React là gì?",
+        "back": "Là các tác vụ tương tác với thế giới bên ngoài như API, Subscription hoặc thao tác DOM trực tiếp.",
+        "example": "Sử dụng hàm setInterval để tạo đồng hồ đếm ngược.",
+        "difficulty": "medium",
+        "topic": "React Concepts"
+      }
+    ],
+    "quizQuestions": [
+      {
+        "id": "qz_1793697535756_0",
+        "question": "Hook nào được sử dụng để thay thế cho việc quản lý trạng thái trong Functional Component?",
+        "explanation": "useState là Hook chuyên biệt dùng để khởi tạo và cập nhật trạng thái trong component hàm.",
+        "options": [
+          "useContext",
+          "useState",
+          "useEffect",
+          "useMemo"
+        ],
+        "correctAnswer": 1,
+        "difficulty": "easy"
+      },
+      {
+        "id": "qz_1793697535756_1",
+        "question": "Đâu là vị trí không được phép gọi React Hooks?",
+        "explanation": "Theo quy tắc của Hooks, chúng ta không được gọi Hooks trong các hàm lồng nhau, vòng lặp hay câu điều kiện.",
+        "options": [
+          "Cấp cao nhất của hàm component",
+          "Bên trong một hàm xử lý sự kiện",
+          "Bên trong vòng lặp for",
+          "Cả B và C đều đúng"
+        ],
+        "correctAnswer": 3,
+        "difficulty": "medium"
+      },
+      {
+        "id": "qz_1793697535756_2",
+        "question": "Khi sử dụng useEffect để gọi API một lần duy nhất khi component mount, ta cần truyền tham số thứ hai là gì?",
+        "explanation": "Truyền một mảng rỗng [] giúp useEffect chỉ chạy một lần duy nhất sau lần render đầu tiên.",
+        "options": [
+          "Một mảng rỗng []",
+          "Một mảng chứa biến trạng thái",
+          "Không truyền gì cả",
+          "Một giá trị null"
+        ],
+        "correctAnswer": 0,
+        "difficulty": "hard"
+      }
+    ],
+    "deadlines": [],
+    "summaryStatus": "completed"
+  }
+]

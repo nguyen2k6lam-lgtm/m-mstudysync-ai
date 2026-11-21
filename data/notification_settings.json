@@ -1,0 +1,32 @@
+[
+  {
+    "userId": "usr_1792307690157_e88f3661",
+    "settings": {
+      "accountEmails": true,
+      "deadlineEmails": true,
+      "premiumEmails": true,
+      "marketingEmails": false,
+      "transactionEmails": true
+    }
+  },
+  {
+    "userId": "usr_1792307782681_fdb32280",
+    "settings": {
+      "accountEmails": true,
+      "deadlineEmails": true,
+      "premiumEmails": true,
+      "marketingEmails": false,
+      "transactionEmails": true
+    }
+  },
+  {
+    "userId": "usr_demo_101",
+    "settings": {
+      "accountEmails": true,
+      "deadlineEmails": true,
+      "premiumEmails": true,
+      "marketingEmails": false,
+      "transactionEmails": true
+    }
+  }
+]

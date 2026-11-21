@@ -1,0 +1,56 @@
+[
+  {
+    "id": "doc_demo_seed_01",
+    "ownerId": "usr_demo_101",
+    "subjectId": "sub_web_01",
+    "lessonId": "les_demo_01",
+    "fileName": "GiaoTrinh_React19_HieuNang.txt",
+    "fileType": "text/plain",
+    "fileSize": 4200,
+    "storagePath": "/app/applet/uploads/documents/GiaoTrinh_React19_HieuNang.txt",
+    "fileUrl": "/api/documents/doc_demo_seed_01/download",
+    "extractedText": "CHƯƠNG 4: TỐI ƯU HÓA HIỆU NĂNG ỨNG DỤNG REACT 19\n1. Khái niệm Virtual DOM và Cơ chế Re-rendering:\nKhi một component trong React thay đổi state hoặc nhận props mới, React sẽ thực hiện quy trình so khớp Virtual DOM (Reconciliation). Nếu một hàm hay object được tạo mới trong quá trình render, nó sẽ tạo ra reference mới, khiến các component con phụ thuộc phải re-render lại dù giá trị thực tế không thay đổi.\n\n2. React Compiler trong React 19:\nReact 19 giới thiệu React Compiler tự động memoize các giá trị và component, loại bỏ sự cần thiết của useCallback và useMemo thủ công trong 90% trường hợp.\n\n3. Hạn nộp bài tập lớn và đồ án:\n- Sinh viên phải nộp Đồ án Xây dựng Nền tảng học tập thông minh trước ngày 15/11/2026 lúc 23:59 qua cổng LMS.\n- Bài kiểm tra trắc nghiệm giữa kỳ diễn ra vào ngày 05/11/2026 tại phòng máy B2-304.",
+    "summary": "Chương 4 của giáo trình Lập trình Web nâng cao tập trung vào các giải pháp tối ưu hóa hiệu năng cho ứng dụng React 19 thông qua cơ chế Virtual DOM. Nội dung nhấn mạnh vào quá trình so khớp và cách thức xử lý khi state hoặc props thay đổi để tránh việc re-render không cần thiết. Điểm nổi bật nhất là sự ra đời của React Compiler giúp tự động ghi nhớ các thành phần và giá trị mà không cần lập trình viên can thiệp thủ công. Điều này cho phép lược bỏ phần lớn các hook như useCallback hay useMemo trong quá trình phát triển thực tế. Ngoài kiến thức kỹ thuật, sinh viên cần lưu ý mốc thời gian kiểm tra giữa kỳ vào ngày 05/11/2026 tại phòng máy chuyên dụng. Cuối cùng, thời hạn nộp đồ án cuối kỳ quan trọng về nền tảng học tập thông minh được ấn định vào cuối ngày 15/11/2026.",
+    "keyTakeaways": [
+      "1. Nắm vững cơ chế Reconciliation và nguyên nhân gây ra việc re-render dư thừa trong React.",
+      "2. Tận dụng React Compiler mới để tự động tối ưu hóa hiệu năng thay cho việc dùng hook thủ công.",
+      "3. Giảm bớt 90 phần trăm trường hợp phải sử dụng useCallback và useMemo nhờ tính năng memoize tự động.",
+      "4. Theo dõi lịch kiểm tra giữa kỳ vào ngày 05/11/2026 tại phòng máy B2-304.",
+      "5. Hoàn thành đồ án Nền tảng học tập thông minh và nộp qua LMS trước 23:59 ngày 15/11/2026."
+    ],
+    "summaryStatus": "completed",
+    "summaryCreatedAt": "2026-10-28T03:47:58.833Z",
+    "summaryModel": "gemini-3.8-flash",
+    "summaryVersion": 2,
+    "processingStatus": "completed",
+    "createdAt": "2026-10-28T03:37:15.131Z",
+    "updatedAt": "2026-10-28T03:47:58.833Z",
+    "lastRequestAt": "2026-10-28T03:47:51.266Z"
+  },
+  {
+    "id": "doc_1793162664191_xbqf6",
+    "ownerId": "usr_demo_101",
+    "subjectId": "sub_web_01",
+    "fileName": "BaoMatWeb.txt",
+    "fileType": "text/plain",
+    "fileSize": 216,
+    "storagePath": "/app/applet/uploads/documents/doc_1793162664191_xbqf6.txt",
+    "fileUrl": "/api/documents/doc_1793162664191_xbqf6/download",
+    "extractedText": "Chương 5: Bảo mật Web với JWT và OAuth2. Access Token có thời hạn ngắn 15 phút, Refresh Token được lưu trong HttpOnly Cookie để chống XSS. Hạn nộp bài tập bảo mật là 30/11/2026.",
+    "summary": "Tài liệu này tập trung vào các giải pháp bảo mật trong lập trình web nâng cao. Nội dung chính đề cập đến việc sử dụng JWT và OAuth2 để quản lý xác thực người dùng một cách an toàn. Hệ thống quy định Access Token cần có thời hạn ngắn là 15 phút để giảm thiểu rủi ro. Refresh Token được yêu cầu lưu trữ trong HttpOnly Cookie nhằm ngăn chặn các cuộc tấn công XSS. Ngoài ra, sinh viên cần lưu ý hạn chót nộp bài tập bảo mật là ngày 30 tháng 11 năm 2026.",
+    "keyTakeaways": [
+      "1. Sử dụng JWT và OAuth2 làm cơ chế bảo mật chính cho ứng dụng web.",
+      "2. Giới hạn thời gian tồn tại của Access Token trong 15 phút.",
+      "3. Bảo vệ Refresh Token bằng cách lưu trong HttpOnly Cookie để chống tấn công XSS.",
+      "4. Hạn nộp bài tập bảo mật là ngày 30/11/2026."
+    ],
+    "summaryStatus": "completed",
+    "processingStatus": "completed",
+    "createdAt": "2026-10-28T04:44:24.196Z",
+    "updatedAt": "2026-10-28T04:44:26.632Z",
+    "lastRequestAt": "2026-10-28T04:44:24.202Z",
+    "summaryCreatedAt": "2026-10-28T04:44:26.632Z",
+    "summaryModel": "gemini-3-flash-preview",
+    "summaryVersion": 1
+  }
+]

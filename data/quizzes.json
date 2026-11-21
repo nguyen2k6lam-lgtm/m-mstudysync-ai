@@ -1,0 +1,325 @@
+[
+  {
+    "id": "quiz_1793159246757_5f84",
+    "ownerId": "usr_demo_101",
+    "subjectId": "sub_web_01",
+    "title": "Trắc nghiệm ôn tập Tài liệu",
+    "questions": [
+      {
+        "id": "q_1793159246757_0",
+        "question": "Trong mạng máy tính, đặc điểm nào sau đây là chính xác khi nói về giao thức TCP?",
+        "options": [
+          "Là giao thức không kết nối và có tốc độ truyền tải nhanh",
+          "Là giao thức hướng kết nối đảm bảo truyền dữ liệu tin cậy",
+          "Là giao thức không quan tâm đến thứ tự của gói tin",
+          "Là giao thức chỉ sử dụng cho các dịch vụ truyền phát video"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Theo nội dung tài liệu, TCP được định nghĩa là giao thức hướng kết nối và có tính năng đảm bảo việc truyền dữ liệu được tin cậy.",
+        "difficulty": "medium"
+      },
+      {
+        "id": "q_1793159246757_1",
+        "question": "Giao thức UDP khác với TCP ở điểm cơ bản nào sau đây?",
+        "options": [
+          "UDP chậm hơn TCP vì phải kiểm tra tính toàn vẹn dữ liệu",
+          "UDP là giao thức hướng kết nối giống như TCP",
+          "UDP có tốc độ nhanh hơn nhưng không đảm bảo thứ tự gói tin",
+          "UDP luôn đảm bảo dữ liệu được truyền đến đích theo đúng trình tự"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Tài liệu chỉ ra rằng UDP là giao thức không kết nối, có ưu điểm về tốc độ nhưng hạn chế là không đảm bảo được thứ tự các gói tin khi truyền.",
+        "difficulty": "medium"
+      }
+    ],
+    "difficulty": "medium",
+    "createdAt": "2026-10-28T03:47:26.757Z"
+  },
+  {
+    "id": "quiz_les_e2e_1793162567950",
+    "ownerId": "usr_demo_101",
+    "subjectId": "sub_web_01",
+    "lessonId": "les_e2e_1793162567950",
+    "title": "Trắc nghiệm: Kiến trúc Microservices và Docker",
+    "questions": [
+      {
+        "id": "qz_1793162608098_0",
+        "question": "Thành phần nào giúp định tuyến và xác thực tập trung trong Microservices?",
+        "explanation": "API Gateway đóng vai trò làm điểm nhập duy nhất, quản lý việc định tuyến và bảo mật tập trung.",
+        "options": [
+          "Message Queue",
+          "API Gateway",
+          "Service Discovery",
+          "Docker"
+        ],
+        "correctAnswer": 1,
+        "difficulty": "easy"
+      },
+      {
+        "id": "qz_1793162608098_1",
+        "question": "Công cụ nào sau đây thường được sử dụng cho giao tiếp bất đồng bộ?",
+        "explanation": "RabbitMQ là một Message Queue phổ biến hỗ trợ giao tiếp bất đồng bộ giữa các dịch vụ.",
+        "options": [
+          "MySQL",
+          "RabbitMQ",
+          "Docker",
+          "HTTP"
+        ],
+        "correctAnswer": 1,
+        "difficulty": "medium"
+      },
+      {
+        "id": "qz_1793162608098_2",
+        "question": "Mục đích chính của Service Discovery là gì?",
+        "explanation": "Service Discovery giúp các thành phần trong hệ thống nhận diện vị trí và kết nối với nhau tự động.",
+        "options": [
+          "Mã hóa dữ liệu",
+          "Tìm kiếm các dịch vụ trong mạng",
+          "Lưu trữ log",
+          "Kiểm tra phiên bản phần mềm"
+        ],
+        "correctAnswer": 1,
+        "difficulty": "medium"
+      }
+    ],
+    "difficulty": "medium",
+    "createdAt": "2026-10-28T04:43:28.099Z"
+  },
+  {
+    "id": "quiz_1793162621007_6f25",
+    "ownerId": "usr_demo_101",
+    "subjectId": "sub_web_01",
+    "lessonId": "les_e2e_1793162567950",
+    "title": "Trắc nghiệm ôn tập Kiến trúc Microservices và Docker",
+    "questions": [
+      {
+        "id": "q_1793162621007_0",
+        "question": "Thành phần nào trong kiến trúc Microservices đóng vai trò định tuyến request và thực hiện xác thực tập trung?",
+        "options": [
+          "Service Discovery",
+          "API Gateway",
+          "Message Queue",
+          "Docker Container"
+        ],
+        "correctAnswer": 1,
+        "explanation": "API Gateway là thành phần trung gian đảm nhận nhiệm vụ định tuyến các yêu cầu từ client đến các dịch vụ phù hợp và xử lý xác thực tập trung.",
+        "difficulty": "easy"
+      },
+      {
+        "id": "q_1793162621007_1",
+        "question": "Mục đích chính của Service Discovery trong hệ thống Microservices là gì?",
+        "options": [
+          "Giúp các dịch vụ tự động tìm thấy nhau trong mạng nội bộ",
+          "Lưu trữ dữ liệu tạm thời cho các dịch vụ",
+          "Thực hiện mã hóa dữ liệu truyền tải",
+          "Quản lý phiên làm việc của người dùng"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Service Discovery cho phép các dịch vụ trong hệ thống tự động nhận diện và kết nối với nhau mà không cần cấu hình thủ công địa chỉ IP.",
+        "difficulty": "medium"
+      },
+      {
+        "id": "q_1793162621007_2",
+        "question": "Công nghệ nào sau đây được sử dụng để hỗ trợ giao tiếp bất đồng bộ giữa các Microservices?",
+        "options": [
+          "Docker",
+          "RabbitMQ",
+          "HTTP REST",
+          "API Gateway"
+        ],
+        "correctAnswer": 1,
+        "explanation": "RabbitMQ và Kafka là các ví dụ điển hình của Message Queue, được dùng để thực hiện giao tiếp bất đồng bộ giúp hệ thống linh hoạt hơn.",
+        "difficulty": "medium"
+      }
+    ],
+    "difficulty": "medium",
+    "createdAt": "2026-10-28T04:43:41.007Z"
+  },
+  {
+    "id": "quiz_les_audio_1793163269157",
+    "ownerId": "usr_demo_101",
+    "subjectId": "sub_web_01",
+    "lessonId": "les_audio_1793163269157",
+    "title": "Trắc nghiệm: Bài giảng Cấu trúc dữ liệu & Giải thuật",
+    "questions": [
+      {
+        "id": "qz_1793163279046_0",
+        "question": "Ngăn xếp (Stack) tuân thủ nguyên tắc nào?",
+        "explanation": "Ngăn xếp định nghĩa theo LIFO, tức là phần tử thêm vào sau cùng phải được lấy ra trước.",
+        "options": [
+          "Vào trước ra trước",
+          "Vào sau ra trước",
+          "Truy cập ngẫu nhiên",
+          "Ưu tiên theo độ lớn"
+        ],
+        "correctAnswer": 1,
+        "difficulty": "easy"
+      },
+      {
+        "id": "qz_1793163279046_1",
+        "question": "Hàng đợi (Queue) tuân thủ nguyên tắc nào?",
+        "explanation": "Hàng đợi định nghĩa theo FIFO, phần tử đi vào trước sẽ được xử lý trước.",
+        "options": [
+          "Vào sau ra trước",
+          "Vào trước ra trước",
+          "Sắp xếp theo thứ tự giảm dần",
+          "Không có nguyên tắc cụ thể"
+        ],
+        "correctAnswer": 1,
+        "difficulty": "easy"
+      },
+      {
+        "id": "qz_1793163279046_2",
+        "question": "Cấu trúc dữ liệu nào thường dùng để mô phỏng quy trình xử lý hàng đợi?",
+        "explanation": "Hàng đợi (Queue) được thiết kế chuyên biệt cho quy trình xếp hàng và xử lý tuần tự.",
+        "options": [
+          "Stack",
+          "Queue",
+          "Mang hai chiều",
+          "Danh sách rỗng"
+        ],
+        "correctAnswer": 1,
+        "difficulty": "medium"
+      }
+    ],
+    "difficulty": "medium",
+    "createdAt": "2026-10-28T04:54:39.047Z"
+  },
+  {
+    "id": "quiz_les_audio_1793163459434",
+    "ownerId": "usr_demo_101",
+    "subjectId": "sub_web_01",
+    "lessonId": "les_audio_1793163459434",
+    "title": "Trắc nghiệm: Bài giảng Cấu trúc dữ liệu & Giải thuật",
+    "questions": [
+      {
+        "id": "qz_1793163560203_0",
+        "question": "Cấu trúc dữ liệu nào tuân theo nguyên tắc LIFO?",
+        "explanation": "Ngăn xếp (Stack) định nghĩa là cấu trúc dữ liệu hoạt động theo cơ chế Vào sau ra trước (LIFO).",
+        "options": [
+          "Queue",
+          "Stack",
+          "Array",
+          "Linked List"
+        ],
+        "correctAnswer": 1,
+        "difficulty": "easy"
+      },
+      {
+        "id": "qz_1793163560203_1",
+        "question": "Cấu trúc dữ liệu nào tuân theo nguyên tắc FIFO?",
+        "explanation": "Hàng đợi (Queue) là cấu trúc dữ liệu hoạt động theo cơ chế Vào trước ra trước (FIFO).",
+        "options": [
+          "Stack",
+          "Queue",
+          "Tree",
+          "Graph"
+        ],
+        "correctAnswer": 1,
+        "difficulty": "easy"
+      }
+    ],
+    "difficulty": "medium",
+    "createdAt": "2026-10-28T04:59:20.204Z"
+  },
+  {
+    "id": "quiz_1793163613051_161d",
+    "ownerId": "usr_demo_101",
+    "subjectId": "sub_net",
+    "lessonId": "les_e2e_1793163457413",
+    "title": "Trắc nghiệm ôn tập Bài giảng Mạng Máy Tính TCP/IP",
+    "questions": [
+      {
+        "id": "q_1793163613050_0",
+        "question": "Giao thức TCP trong mạng máy tính có đặc điểm chính nào sau đây?",
+        "options": [
+          "Truyền dữ liệu không tin cậy và không cần thiết lập kết nối",
+          "Đảm bảo truyền dữ liệu tin cậy và có kết nối",
+          "Chỉ thực hiện chức năng định tuyến gói tin",
+          "Không có khả năng kiểm soát luồng dữ liệu"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Theo bài giảng, giao thức TCP được thiết kế để đảm bảo sự truyền tải dữ liệu tin cậy thông qua việc thiết lập kết nối giữa hai đầu cuối.",
+        "difficulty": "easy"
+      },
+      {
+        "id": "q_1793163613050_1",
+        "question": "Chức năng nào của giao thức TCP giúp điều phối lượng dữ liệu truyền tải giữa hai đầu cuối?",
+        "options": [
+          "Định dạng dữ liệu",
+          "Phân mảnh gói tin",
+          "Kiểm soát luồng dữ liệu",
+          "Kiểm tra tính toàn vẹn vật lý"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Giao thức TCP bao gồm tính năng kiểm soát luồng dữ liệu nhằm ngăn chặn việc tràn bộ đệm và điều phối tốc độ gửi dữ liệu giữa các thiết bị.",
+        "difficulty": "medium"
+      },
+      {
+        "id": "q_1793163613050_2",
+        "question": "Trong mô hình mạng, giao thức TCP thực hiện truyền dữ liệu giữa hai đối tượng nào?",
+        "options": [
+          "Hai nút mạng trung gian",
+          "Hai đầu cuối trong mạng",
+          "Các tầng vật lý của mạng",
+          "Máy chủ và router"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Giao thức TCP tập trung vào việc quản lý việc truyền tải dữ liệu giữa hai đầu cuối tham gia vào phiên kết nối.",
+        "difficulty": "medium"
+      }
+    ],
+    "difficulty": "medium",
+    "createdAt": "2026-10-28T05:00:13.051Z"
+  },
+  {
+    "id": "quiz_les_e2e_test_99",
+    "ownerId": "usr_demo_101",
+    "subjectId": "sub_web_01",
+    "lessonId": "les_e2e_test_99",
+    "title": "Trắc nghiệm: Bài giảng React Hooks và State",
+    "questions": [
+      {
+        "id": "qz_1793697535756_0",
+        "question": "Hook nào được sử dụng để thay thế cho việc quản lý trạng thái trong Functional Component?",
+        "explanation": "useState là Hook chuyên biệt dùng để khởi tạo và cập nhật trạng thái trong component hàm.",
+        "options": [
+          "useContext",
+          "useState",
+          "useEffect",
+          "useMemo"
+        ],
+        "correctAnswer": 1,
+        "difficulty": "easy"
+      },
+      {
+        "id": "qz_1793697535756_1",
+        "question": "Đâu là vị trí không được phép gọi React Hooks?",
+        "explanation": "Theo quy tắc của Hooks, chúng ta không được gọi Hooks trong các hàm lồng nhau, vòng lặp hay câu điều kiện.",
+        "options": [
+          "Cấp cao nhất của hàm component",
+          "Bên trong một hàm xử lý sự kiện",
+          "Bên trong vòng lặp for",
+          "Cả B và C đều đúng"
+        ],
+        "correctAnswer": 3,
+        "difficulty": "medium"
+      },
+      {
+        "id": "qz_1793697535756_2",
+        "question": "Khi sử dụng useEffect để gọi API một lần duy nhất khi component mount, ta cần truyền tham số thứ hai là gì?",
+        "explanation": "Truyền một mảng rỗng [] giúp useEffect chỉ chạy một lần duy nhất sau lần render đầu tiên.",
+        "options": [
+          "Một mảng rỗng []",
+          "Một mảng chứa biến trạng thái",
+          "Không truyền gì cả",
+          "Một giá trị null"
+        ],
+        "correctAnswer": 0,
+        "difficulty": "hard"
+      }
+    ],
+    "difficulty": "medium",
+    "createdAt": "2026-11-03T09:18:55.767Z"
+  }
+]

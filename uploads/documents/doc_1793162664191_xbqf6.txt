@@ -1,0 +1,1 @@
+Chương 5: Bảo mật Web với JWT và OAuth2. Access Token có thời hạn ngắn 15 phút, Refresh Token được lưu trong HttpOnly Cookie để chống XSS. Hạn nộp bài tập bảo mật là 30/11/2026.

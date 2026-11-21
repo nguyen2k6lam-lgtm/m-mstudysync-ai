@@ -1,0 +1,41 @@
+[
+  {
+    "id": "sub_1792307690333_c895e8",
+    "ownerId": "usr_1792307690157_e88f3661",
+    "name": "Hệ điều hành",
+    "code": "OS201",
+    "description": "",
+    "color": "#4f46e5",
+    "lecturer": "",
+    "schedule": "",
+    "progress": 0,
+    "createdAt": "2026-10-18T07:14:50.333Z",
+    "updatedAt": "2026-10-18T07:14:50.333Z"
+  },
+  {
+    "id": "sub_1792307700962_69f457",
+    "ownerId": "usr_1792307700948_b3f277e2",
+    "name": "Hệ điều hành",
+    "code": "OS201",
+    "description": "",
+    "color": "#4f46e5",
+    "lecturer": "",
+    "schedule": "",
+    "progress": 0,
+    "createdAt": "2026-10-18T07:15:00.962Z",
+    "updatedAt": "2026-10-18T07:15:00.962Z"
+  },
+  {
+    "id": "sub_1792307782832_27a1d7",
+    "ownerId": "usr_1792307782681_fdb32280",
+    "name": "Hệ điều hành",
+    "code": "OS201",
+    "description": "",
+    "color": "#4f46e5",
+    "lecturer": "",
+    "schedule": "",
+    "progress": 0,
+    "createdAt": "2026-10-18T07:16:22.833Z",
+    "updatedAt": "2026-10-18T07:16:22.833Z"
+  }
+]

@@ -1,0 +1,7 @@
+GIÁO TRÌNH HỆ PHÂN TÁN VÀ MICROSERVICES
+Chương 1: Khái niệm kiến trúc hướng dịch vụ
+Hệ thống phân tán bao gồm nhiều thành phần phần mềm độc lập giao tiếp qua mạng máy tính.
+Đặc trưng chính của Microservices:
+1. Tính tự trị: Mỗi dịch vụ có cơ sở dữ liệu riêng biệt.
+2. Khả năng mở rộng độc lập: Dịch vụ có lưu lượng truy cập cao có thể scale mà không ảnh hưởng dịch vụ khác.
+3. Hạn nộp báo cáo chuyên đề: Tất cả các nhóm phải nộp báo cáo kiến trúc trước ngày 10/12/2026.
